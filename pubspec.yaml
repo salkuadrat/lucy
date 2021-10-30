@@ -1,0 +1,19 @@
+name: lucy
+description: Command line interface for Lucifer framework.
+version: 1.0.0
+homepage: https://github.com/salkuadrat/lucy
+repo: https://github.com/salkuadrat/lucy
+
+environment:
+  sdk: '>=2.14.0 <3.0.0'
+
+dependencies:
+  process_run: ^0.12.2+1
+  watcher: ^1.0.0
+  path: ^1.8.0
+
+dev_dependencies:
+  lints: ^1.0.0
+
+executables:
+  lucy: lucy.dart
