@@ -197,6 +197,7 @@ void main() async {
   );
   print('');
   print('  cd $project');
+  print('  pub get');
   print('  lucy run');
 }
 

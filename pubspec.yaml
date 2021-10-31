@@ -1,6 +1,6 @@
 name: lucy
 description: Command Line Interface (CLI) for Lucifer (a fast, light-weight web framework in dart)
-version: 1.0.4
+version: 1.0.6
 homepage: https://github.com/salkuadrat/lucy
 repo: https://github.com/salkuadrat/lucy
 

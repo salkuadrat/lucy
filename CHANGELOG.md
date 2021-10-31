@@ -17,3 +17,11 @@
 ## 1.0.4 
 
 - Update to Lucifer 1.0.3
+
+## 1.0.5 
+
+- Add kill process after lucy create
+
+## 1.0.6 
+
+- Remove kill process
