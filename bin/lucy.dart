@@ -5,7 +5,7 @@ import 'package:path/path.dart';
 import 'package:process_run/shell.dart';
 import 'package:watcher/watcher.dart';
 
-String version = '1.0.0';
+String version = '1.0.1';
 
 main(List<String> args) async {
   print('');
