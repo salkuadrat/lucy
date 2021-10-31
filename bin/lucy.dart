@@ -111,7 +111,6 @@ Future<void> _create(List<String> args) async {
 
   await shell.run('''
     dart create $project
-    cd $project && pub get
   ''');
 
   String directory = absolute(project);
@@ -188,13 +187,17 @@ void main() async {
     projectFile.deleteSync();
   }
 
+  await shell.run('''
+    cd $project && pub get
+  ''');
+
   print('');
   print(
     'Project $project is ready in $project. Run this command to get started.',
   );
   print('');
   print('  cd $project');
-  print('  lucifer run');
+  print('  lucy run');
 }
 
 FutureOr _controller(List<String> args) async {
