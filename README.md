@@ -1,6 +1,6 @@
 # Lucy 
 
-A command-line interface (CLI) for [Lucifer](https://pub.dev/packages/lucifer) framework.
+Command Line Interface (CLI) for [Lucifer](https://pub.dev/packages/lucifer).
 
 ## Installation 
 
