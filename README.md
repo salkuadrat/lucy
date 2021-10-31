@@ -4,7 +4,7 @@ A command-line interface (CLI) for [Lucifer](https://pub.dev/packages/lucifer) f
 
 ## Installation 
 
-Activate command line from your terminal by using this command.
+Activate command line from your terminal with this command.
 
 ```bash
 dart pub global activate lucy
