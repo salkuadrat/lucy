@@ -13,3 +13,7 @@
 ## 1.0.3 
 
 - Fixing lucy create command
+
+## 1.0.4 
+
+- Update to Lucifer 1.0.3
