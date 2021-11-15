@@ -74,6 +74,7 @@ Future<void> _hotrun(List<String> args) async {
   }
 
   Process process = await _run(file);
+
   bool isLoading = false;
 
   print('Starting...');
@@ -100,8 +101,9 @@ Future<void> _hotrun(List<String> args) async {
 
 Future<Process> _run(String file) async {
   Process process = await Process.start('dart', [file]);
-  stdout.addStream(process.stdout);
+  await Future.delayed(Duration(seconds: 1));
   stderr.addStream(process.stderr);
+  stdout.addStream(process.stdout);
   return process;
 }
 
@@ -323,14 +325,14 @@ Future<void> _db(List<String> args) async {
   //
   // Create cli commands for database:
   //
-  // lucifer db init
-  // lucifer db create
-  // lucifer db model --name User --attributes
-  // lucifer db migrate
-  // lucifer db seed --name users
-  // lucifer db seeds
+  // lucy db init
+  // lucy db create
+  // lucy db model --name User --attributes
+  // lucy db migrate
+  // lucy db seed --name users
+  // lucy db seeds
   //
-  print('Command lucifer db is under development...');
+  print('Command lucy db is under development...');
 }
 
 extension CapExtension on String {

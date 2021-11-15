@@ -25,3 +25,7 @@
 ## 1.0.6 
 
 - Remove kill process
+
+## 1.0.7 
+
+- Fixing stdout error
