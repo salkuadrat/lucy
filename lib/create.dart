@@ -87,16 +87,15 @@ void main() async {
     projectFile.deleteSync();
   }
 
-  shell.pushd(project);
+  shell = shell.pushd(project);
   await shell.run('pub get');
-  shell.popd();
+  shell = shell.popd();
 
   print('');
   print(
-    'Project $project is ready in $project. Run this command to get started.',
+    'Project $project is ready. Run this command to get started.',
   );
   print('');
-  print('  cd $project');
-  print('  pub get');
-  print('  lucy run');
+  print('    cd $project');
+  print('    lucy run');
 }
