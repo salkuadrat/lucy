@@ -29,3 +29,7 @@
 ## 1.0.7 
 
 - Fixing stdout error
+
+## 1.0.8 
+
+- Refactor the codes into lib
