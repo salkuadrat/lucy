@@ -43,3 +43,7 @@
 ## 1.1.0 
 
 - Remove Shell and change using Process
+
+## 1.1.1
+
+- Add L command
