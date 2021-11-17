@@ -47,3 +47,7 @@
 ## 1.1.1
 
 - Add L command
+
+## 1.1.2 
+
+- Update Lucifer version
