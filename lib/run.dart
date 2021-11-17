@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:path/path.dart';
@@ -50,7 +51,6 @@ FutureOr run(List<String> args) async {
         print('Reloading...');
         print('');
         isLoading = true;
-        await Future.delayed(Duration(seconds: 1));
         process = await _createProcess(file);
         isLoading = false;
       }
@@ -61,7 +61,7 @@ FutureOr run(List<String> args) async {
 
 Future<Process> _createProcess(String file) async {
   Process process = await Process.start('dart', [file]);
-  stderr.addStream(process.stderr);
-  stdout.addStream(process.stdout);
+  process.stdout.transform(utf8.decoder).forEach(print);
+  process.stderr.transform(utf8.decoder).forEach(print);
   return process;
 }
