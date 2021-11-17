@@ -39,3 +39,7 @@
 - Change lucy create command
 - Add lucy build command
 - Update Lucifer version
+
+## 1.1.0 
+
+- Remove Shell and change using Process
