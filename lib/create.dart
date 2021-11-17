@@ -9,9 +9,7 @@ import 'version.dart';
 FutureOr create(List<String> args) async {
   String project = args[1];
 
-  await shell.run('''
-    dart create $project
-  ''');
+  Process.runSync('dart', ['create', project]);
 
   String directory = absolute(project);
   File pubspec = File('$directory/pubspec.yaml');

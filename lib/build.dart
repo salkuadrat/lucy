@@ -3,8 +3,6 @@ import 'dart:io';
 
 import 'package:path/path.dart';
 
-import 'shell.dart';
-
 FutureOr build(List<String> args) async {
   String directory = absolute('');
   String dir = basename(directory);
@@ -27,7 +25,9 @@ FutureOr build(List<String> args) async {
     return;
   }
 
-  await shell.run('dart compile exe $file');
+  print('Building executable...');
+
+  Process.runSync('dart', ['compile', 'exe', file]);
 
   String exeFile = file.replaceAll('.dart', '');
   List exeFiles = [exeFile, '$exeFile.exe'];
@@ -40,7 +40,7 @@ FutureOr build(List<String> args) async {
   }
 
   File source = File('$directory/$exeFile');
-  String filename = exeFile.contains('.exe') ? '$dir.exe' : 'dir';
+  String filename = exeFile.contains('.exe') ? '$dir.exe' : dir;
   String target = '$directory/$filename';
 
   try {

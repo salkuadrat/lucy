@@ -76,7 +76,8 @@ class $className extends Controller {
 }
     ''');
 
-    print(
-        '$className is ready at ${separator}lib${separator}controller$separator$filename');
+    print('''
+      $className is ready at ${separator}lib${separator}controller$separator$filename
+    ''');
   }
 }

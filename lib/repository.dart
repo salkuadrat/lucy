@@ -44,7 +44,8 @@ class $className extends Repository {
 }
     ''');
 
-    print(
-        '$className is ready at ${separator}lib${separator}repository$separator$filename');
+    print('''
+      $className is ready at ${separator}lib${separator}repository$separator$filename
+    ''');
   }
 }
