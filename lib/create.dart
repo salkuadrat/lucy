@@ -3,13 +3,25 @@ import 'dart:io';
 
 import 'package:path/path.dart';
 
-import 'shell.dart';
 import 'version.dart';
 
 FutureOr create(List<String> args) async {
   String project = args[1];
 
+  print('Creating $project...');
+  print('');
+
   Process.runSync('dart', ['create', project]);
+
+  print('  .gitignore');
+  print('  analysis_options.yaml');
+  print('  pubspec.yaml');
+  print('  CHANGELOG.md');
+  print('  README.md');
+  print('  bin${separator}main.dart');
+  print('  lib${separator}main.dart');
+  print('');
+  print('');
 
   String directory = absolute(project);
   File pubspec = File('$directory/pubspec.yaml');
@@ -95,9 +107,9 @@ void main() {
   File proj = File('$directory/bin/$project.dart');
   proj.deleteSync();
 
-  shell = shell.pushd(project);
-  await shell.run('pub get');
-  shell = shell.popd();
+  ProcessResult pr =
+      Process.runSync('cd $project & pub get', [], runInShell: true);
+  print(pr.stdout);
 
   print('');
   print(

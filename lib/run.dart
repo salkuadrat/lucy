@@ -39,6 +39,11 @@ FutureOr run(List<String> args) async {
   print('Starting...');
   print('');
 
+  ProcessSignal.sigint.watch().listen((event) {
+    process.exitCode.then((_) => exit(0));
+    process.kill();
+  });
+
   DirectoryWatcher(directory).events.listen((event) {
     process.exitCode.then((code) async {
       if (!isLoading) {
@@ -50,11 +55,6 @@ FutureOr run(List<String> args) async {
         isLoading = false;
       }
     });
-    process.kill();
-  });
-
-  ProcessSignal.sigint.watch().listen((event) {
-    process.exitCode.then((_) => exit(0));
     process.kill();
   });
 }
