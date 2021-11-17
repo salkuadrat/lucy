@@ -33,3 +33,9 @@
 ## 1.0.8 
 
 - Refactor the codes into lib
+
+## 1.0.9
+
+- Change lucy create command
+- Add lucy build command
+- Update Lucifer version

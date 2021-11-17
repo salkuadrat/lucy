@@ -12,7 +12,7 @@ FutureOr controller(List<String> args) async {
     return;
   }
 
-  String directory = absolute('bin/controller');
+  String directory = absolute('lib/controller');
   Directory dir = Directory(directory);
 
   if (!dir.existsSync()) {
@@ -76,6 +76,7 @@ class $className extends Controller {
 }
     ''');
 
-    print('$className is ready at /bin/controller/$filename');
+    print(
+        '$className is ready at ${separator}lib${separator}controller$separator$filename');
   }
 }

@@ -10,6 +10,8 @@ main(List<String> args) async {
       return await run(args);
     } else if (args.first == 'create' && args.length > 1) {
       return await create(args);
+    } else if (args.first == 'build') {
+      return await build(args);
     } else if (args.first == 'c' && args.length > 1) {
       return await controller(args);
     } else if (args.first == 'r' && args.length > 1) {
@@ -26,7 +28,6 @@ void _error() {
   print('Please use a correct command, such as:');
   print('');
   print('    lucy run');
-  print('    lucy bin/main.dart');
   print('');
   print('    lucy create <project-name>');
   print('');

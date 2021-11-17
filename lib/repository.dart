@@ -12,7 +12,7 @@ FutureOr repository(List<String> args) async {
     return;
   }
 
-  String directory = absolute('bin/repository');
+  String directory = absolute('lib/repository');
   Directory dir = Directory(directory);
 
   if (!dir.existsSync()) {
@@ -44,6 +44,7 @@ class $className extends Repository {
 }
     ''');
 
-    print('$className is ready at /bin/repository/$filename');
+    print(
+        '$className is ready at ${separator}lib${separator}repository$separator$filename');
   }
 }

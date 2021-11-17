@@ -6,7 +6,7 @@ import 'package:watcher/watcher.dart';
 
 FutureOr run(List<String> args) async {
   String directory = absolute('');
-  String dirname = basename(directory);
+  String dir = basename(directory);
   String file = '';
 
   if (args.length > 1) {
@@ -16,8 +16,8 @@ FutureOr run(List<String> args) async {
     }
   } else {
     List files = [
-      'bin/$dirname.dart',
       'bin/main.dart',
+      'bin/$dir.dart',
     ];
 
     for (var f in files) {
