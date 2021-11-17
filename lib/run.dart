@@ -60,8 +60,10 @@ FutureOr run(List<String> args) async {
 }
 
 Future<Process> _createProcess(String file) async {
-  Process process = await Process.start('dart', [file]);
-  process.stdout.transform(utf8.decoder).forEach(print);
-  process.stderr.transform(utf8.decoder).forEach(print);
+  Process process = await Process.start(
+    'dart',
+    [file],
+    mode: ProcessStartMode.inheritStdio,
+  );
   return process;
 }

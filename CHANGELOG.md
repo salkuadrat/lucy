@@ -55,3 +55,7 @@
 ## 1.1.3 
 
 - Update stdout print stream at run.dart
+
+## 1.1.4 
+
+- Change stdout print into inherit stdio at Process
