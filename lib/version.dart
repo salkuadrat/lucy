@@ -1,2 +1,3 @@
-/// This is Lucifer version, not L version
-String version = '1.0.6';
+/// This is Lucifer version, not Lucy version
+String version = '1.0.7';
+String lversion = '1.1.5';

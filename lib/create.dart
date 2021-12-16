@@ -40,8 +40,7 @@ dependencies:
   lucifer: ^$version
 
 dev_dependencies:
-  lints: ^1.0.0
-    ''');
+  lints: ^1.0.0''');
   }
 
   File env = File('$directory/.env');
@@ -52,26 +51,26 @@ dev_dependencies:
 
   env.writeAsStringSync('''
 ENV = development
-PORT = 3000
-  ''');
+PORT = 3000''');
 
   File gitignore = File('$directory/.gitignore');
 
-  if (gitignore.existsSync()) {
-    gitignore.writeAsStringSync('''
+  if (!gitignore.existsSync()) {
+    gitignore.createSync();
+  }
+
+  gitignore.writeAsStringSync('''
 
 # Environment variables
-.env
-    ''', mode: FileMode.append);
-  }
+.env''', mode: FileMode.append);
 
   Directory('$directory/lib').createSync();
   Directory('$directory/public').createSync();
+
   File('$directory/public/favicon.ico').createSync();
-
   File main = File('$directory/lib/main.dart');
-  main.createSync();
 
+  main.createSync();
   main.writeAsStringSync('''
 import 'package:lucifer/lucifer.dart';
 
@@ -90,26 +89,34 @@ void main() async {
   
   print('Server running at http://\${app.host}:\${app.port}');
   app.checkRoutes();
-}
-  ''');
+}''');
 
   File bin = File('$directory/bin/main.dart');
-  bin.createSync();
 
+  bin.createSync();
   bin.writeAsStringSync('''
 import 'package:$project/main.dart' as $project;
 
 void main() {
   $project.main();
-}
-  ''');
+}''');
 
   File proj = File('$directory/bin/$project.dart');
   proj.deleteSync();
 
-  ProcessResult pr =
-      Process.runSync('cd $project & pub get', [], runInShell: true);
-  print(pr.stdout);
+  print('Running pub get on $directory');
+
+  Process.runSync(
+    'cd $project & pub get',
+    [],
+    runInShell: true,
+  );
+
+  Process.runSync(
+    'cd $project && git init && git add . && git commit -m "Initial commit"',
+    [],
+    runInShell: true,
+  );
 
   print('');
   print(
@@ -117,5 +124,5 @@ void main() {
   );
   print('');
   print('    cd $project');
-  print('    lucy run');
+  print('    l run');
 }

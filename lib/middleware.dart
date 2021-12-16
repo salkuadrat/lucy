@@ -3,16 +3,14 @@ import 'dart:io';
 
 import 'package:path/path.dart';
 
-import 'extensions.dart';
-
-FutureOr repository(List<String> args) async {
+FutureOr middleware(List<String> args) async {
   List<String> names = args.sublist(1);
 
   if (names.isEmpty) {
     return;
   }
 
-  String directory = absolute('lib/repository');
+  String directory = absolute('lib/middleware');
   Directory dir = Directory(directory);
 
   if (!dir.existsSync()) {
@@ -23,15 +21,13 @@ FutureOr repository(List<String> args) async {
 
   for (String name in names) {
     if (alpha.hasMatch(name)) {
-      _createRepository(name.toLowerCase(), directory);
+      _createMiddleware(name, directory);
     }
   }
 }
 
-FutureOr _createRepository(String name, String directory) async {
-  String filename = '${name}_repository.dart';
-  String className = '${name.inCaps}Repository';
-
+FutureOr _createMiddleware(String name, String directory) async {
+  String filename = '$name.dart';
   File file = File('$directory/$filename');
 
   if (!file.existsSync()) {
@@ -39,12 +35,14 @@ FutureOr _createRepository(String name, String directory) async {
     file.writeAsStringSync('''
 import 'package:lucifer/lucifer.dart';
 
-class $className extends Repository {
-  $className(App app) : super(app);
+Callback $name() {
+  return (Req req, Res res) async {
+    // define your middleware process here
+  };
 }''');
 
     print('''
-Your $className is ready at ${separator}lib${separator}repository$separator$filename
+Your $name middleware is ready at ${separator}lib${separator}middleware$separator$filename
     ''');
   }
 }

@@ -59,3 +59,8 @@
 ## 1.1.4 
 
 - Change stdout print into inherit stdio at Process
+
+## 1.1.5 
+
+- Refine create command
+- Add `l m` command to generate middleware

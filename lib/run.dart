@@ -11,6 +11,7 @@ FutureOr run(List<String> args) async {
 
   if (args.length > 1) {
     String f = args[1];
+
     if (File(f).existsSync()) {
       file = f;
     }
@@ -29,7 +30,7 @@ FutureOr run(List<String> args) async {
   }
 
   if (!file.contains('.dart')) {
-    print('Could not find the target file to run.');
+    print('Could not find the target file to run...');
     return;
   }
 
@@ -59,10 +60,7 @@ FutureOr run(List<String> args) async {
 }
 
 Future<Process> _createProcess(String file) async {
-  Process process = await Process.start(
-    'dart',
-    [file],
-    mode: ProcessStartMode.inheritStdio,
-  );
+  Process process =
+      await Process.start('dart', [file], mode: ProcessStartMode.inheritStdio);
   return process;
 }

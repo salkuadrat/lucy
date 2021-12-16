@@ -16,6 +16,8 @@ main(List<String> args) async {
       return await controller(args);
     } else if (args.first == 'r' && args.length > 1) {
       return await repository(args);
+    } else if (args.first == 'm' && args.length > 1) {
+      return await middleware(args);
     } else if (args.first == 'db') {
       return await db(args);
     }
@@ -29,10 +31,10 @@ void _error() {
   print('');
   print('    lucy run');
   print('');
-  print('    lucy create <project-name>');
+  print('    lucy create <project>');
   print('');
-  print('    lucy c <controller-name>');
+  print('    lucy c <controller>');
   print('');
-  print('    lucy r <repository-name>');
+  print('    lucy r <repository>');
   print('');
 }

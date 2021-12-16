@@ -2,6 +2,7 @@ import 'package:lucy/lucy.dart';
 
 main(List<String> args) async {
   print('');
+  print('Lucy $lversion');
   print('Lucifer $version');
   print('');
 
@@ -16,6 +17,8 @@ main(List<String> args) async {
       return await controller(args);
     } else if (args.first == 'r' && args.length > 1) {
       return await repository(args);
+    } else if (args.first == 'm' && args.length > 1) {
+      return await middleware(args);
     } else if (args.first == 'db') {
       return await db(args);
     }
@@ -29,10 +32,10 @@ void _error() {
   print('');
   print('    l run');
   print('');
-  print('    l create <project-name>');
+  print('    l create <project>');
   print('');
-  print('    l c <controller-name>');
+  print('    l c <controller>');
   print('');
-  print('    l r <repository-name>');
+  print('    l r <repository>');
   print('');
 }

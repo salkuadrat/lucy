@@ -23,14 +23,14 @@ FutureOr controller(List<String> args) async {
 
   for (String name in names) {
     if (alpha.hasMatch(name)) {
-      _createController(name, directory);
+      _createController(name.toLowerCase(), directory);
     }
   }
 }
 
 FutureOr _createController(String name, String directory) async {
-  String filename = '${name.toLowerCase()}_controller.dart';
-  String className = '${name.toLowerCase().inCaps}Controller';
+  String filename = '${name}_controller.dart';
+  String className = '${name.inCaps}Controller';
 
   File file = File('$directory/$filename');
 
@@ -73,11 +73,10 @@ class $className extends Controller {
   FutureOr deleteAll(Req req, Res res) async {
   
   }
-}
-    ''');
+}''');
 
     print('''
-      $className is ready at ${separator}lib${separator}controller$separator$filename
+Your $className is ready at ${separator}lib${separator}controller$separator$filename
     ''');
   }
 }
